@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Road Trip Rif &amp; Méditerranée — 5 → 15 septembre</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --mer:#123E56;        /* bleu Alboran */
+  --turquoise:#2FA7A0;  /* eau de Quemado */
+  --sable:#EFE6D3;
+  --chaux:#FBF8F1;      /* blanc médina */
+  --safran:#C8862B;
+  --nuit:#1B2530;
+  --ligne:#D8CDB6;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Karla',sans-serif;background:var(--chaux);color:var(--nuit);line-height:1.6}
+img{display:block;max-width:100%}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;min-height:78vh;display:flex;align-items:flex-end;color:#fff;background:var(--mer);overflow:hidden}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.65}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,62,86,.15) 30%,rgba(18,62,86,.92) 100%)}
+.hero-in{position:relative;z-index:2;padding:48px 22px 42px;max-width:960px;margin:0 auto;width:100%}
+.eyebrow{font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:var(--sable);font-weight:700}
+h1{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(2.1rem,6.5vw,3.6rem);line-height:1.08;margin:.4em 0 .5em}
+.hero p{max-width:560px;color:#EAF2F5}
+.hero-stats{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.chip{background:rgba(251,248,241,.14);border:1px solid rgba(251,248,241,.35);backdrop-filter:blur(4px);border-radius:999px;padding:7px 15px;font-size:.85rem;font-weight:500}
+
+/* ---------- RÉSUMÉ ---------- */
+.wrap{max-width:960px;margin:0 auto;padding:0 22px}
+.resume{padding:44px 0 12px}
+.resume h2,.section-title{font-family:'Fraunces',serif;font-weight:600;font-size:1.7rem;margin-bottom:14px}
+.resume-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;margin-top:20px}
+.rcard{background:#fff;border:1px solid var(--ligne);border-radius:14px;padding:18px}
+.rcard b{display:block;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--turquoise);margin-bottom:6px}
+.note{background:var(--sable);border-left:4px solid var(--safran);border-radius:0 12px 12px 0;padding:14px 18px;margin:26px 0;font-size:.92rem}
+
+/* ---------- RUBAN DE ROUTE (signature) ---------- */
+.route{position:relative;padding:36px 0 60px}
+.route::before{content:"";position:absolute;left:30px;top:0;bottom:0;width:3px;background:repeating-linear-gradient(180deg,var(--turquoise) 0 14px,transparent 14px 24px)}
+.leg{position:relative;margin:0 0 18px 62px;font-size:.82rem;font-weight:700;letter-spacing:.06em;color:var(--mer);text-transform:uppercase}
+.leg::before{content:"⛗";position:absolute;left:-46px;top:-2px;width:26px;height:26px;background:var(--safran);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.85rem}
+
+/* ---------- CARTES JOUR ---------- */
+.day{position:relative;margin:0 0 34px 62px;background:#fff;border:1px solid var(--ligne);border-radius:18px;overflow:hidden;box-shadow:0 3px 14px rgba(18,62,86,.06)}
+.day::before{content:attr(data-n);position:absolute;left:-62px;top:22px;width:44px;height:44px;background:var(--mer);color:var(--chaux);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-weight:700;font-size:1.05rem;border:3px solid var(--chaux);box-shadow:0 0 0 2px var(--turquoise)}
+.day-head{padding:20px 24px 6px}
+.date-tag{display:inline-block;background:var(--sable);color:var(--mer);font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:5px 12px;border-radius:999px;margin-bottom:10px}
+.day h3{font-family:'Fraunces',serif;font-weight:600;font-size:1.45rem;line-height:1.2}
+.day-sub{color:#5A6672;font-size:.92rem;margin-top:4px}
+.day-body{padding:14px 24px 24px}
+.block-t{font-size:.75rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--turquoise);margin:18px 0 8px}
+.hotel{background:var(--chaux);border:1px solid var(--ligne);border-radius:14px;padding:16px 18px}
+.hotel-name{font-weight:700;font-size:1.02rem}
+.hotel-meta{font-size:.88rem;color:#4A5560;margin-top:4px}
+.rooms{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.room{background:#fff;border:1px dashed var(--safran);border-radius:10px;padding:6px 12px;font-size:.82rem;font-weight:500}
+.price{display:inline-block;margin-top:10px;background:var(--mer);color:#fff;border-radius:8px;padding:5px 12px;font-size:.85rem;font-weight:700}
+.links{margin-top:10px;font-size:.85rem}
+.links a{color:var(--turquoise);font-weight:700;text-decoration:none;margin-right:14px}
+.links a:hover{text-decoration:underline}
+ul.acts{list-style:none;margin-top:2px}
+ul.acts li{padding:9px 0 9px 26px;position:relative;border-bottom:1px solid #F0EADB;font-size:.94rem}
+ul.acts li:last-child{border-bottom:none}
+ul.acts li::before{content:"◆";position:absolute;left:4px;color:var(--safran);font-size:.7rem;top:13px}
+ul.acts b{color:var(--mer)}
+.gal{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:8px;margin-top:14px}
+.ph{border-radius:12px;overflow:hidden;aspect-ratio:4/3;background:var(--sable)}
+.ph img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.ph:hover img{transform:scale(1.05)}
+.cred{font-size:.72rem;color:#8A9199;margin-top:6px}
+
+/* ---------- FOOTER ---------- */
+footer{background:var(--mer);color:var(--sable);padding:40px 22px;text-align:center;font-size:.85rem;margin-top:30px}
+footer b{color:#fff}
+
+/* ---------- NAV ---------- */
+.nav{position:sticky;top:0;z-index:10;background:rgba(251,248,241,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--ligne);overflow-x:auto;white-space:nowrap}
+.nav-in{max-width:960px;margin:0 auto;padding:10px 22px;display:flex;gap:18px}
+.nav a{color:var(--mer);text-decoration:none;font-size:.82rem;font-weight:700;letter-spacing:.04em}
+.nav a:hover{color:var(--safran)}
+
+@media(max-width:640px){
+  .route::before{left:20px}
+  .day{margin-left:48px}
+  .day::before{left:-48px;width:36px;height:36px;font-size:.9rem}
+  .leg{margin-left:48px}
+  .leg::before{left:-40px;width:22px;height:22px;font-size:.7rem}
+}
+@media(prefers-reduced-motion:reduce){.ph img{transition:none}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Plage%20quemado%20Al%20hoceima.jpg?width=1600" alt="Baie de Quemado, Al Hoceïma" onerror="this.style.display='none'">
+  <div class="hero-in">
+    <div class="eyebrow">Berkane → Rif → Détroit · 5 – 15 septembre</div>
+    <h1>La corniche méditerranéenne,<br>d'Al Hoceïma à Tanger</h1>
+    <p>10 nuits en famille (2 parents + 1 sœur) le long de la N16, la route côtière la plus spectaculaire du Maroc. Petites baies, ports de pêche, médinas UNESCO — et retour par l'autoroute.</p>
+    <div class="hero-stats">
+      <span class="chip">👨‍👩‍👧 3 voyageurs</span>
+      <span class="chip">🛏️ 2 chambres / hôtel (king parents + chambre sœur)</span>
+      <span class="chip">💶 ≤ 150 € / nuit pour les 2 chambres</span>
+      <span class="chip">🚗 ≈ 1 100 km au total</span>
+    </div>
+  </div>
+</header>
+
+<nav class="nav"><div class="nav-in">
+  <a href="#j1">Al Hoceïma</a><a href="#j4">Cala Iris</a><a href="#j5">El Jebha</a><a href="#j6">Targha · Oued Laou</a><a href="#j7">Tétouan</a><a href="#j9">Belyounech · Tanger</a><a href="#j11">Retour</a>
+</div></nav>
+
+<section class="resume wrap">
+  <h2>Le trip en un coup d'œil</h2>
+  <div class="resume-grid">
+    <div class="rcard"><b>Itinéraire</b>Berkane → Al Hoceïma (3 n) → Cala Iris (1 n) → El Jebha (1 n) → Targha / Oued Laou (1 n) → Tétouan (2 n) → Belyounech / Ksar Sghir → Tanger (2 n) → retour Berkane</div>
+    <div class="rcard"><b>Budget hébergement</b>2 chambres par hôtel. Estimation totale : <strong>≈ 950 – 1 200 €</strong> pour les 10 nuits, sous la barre des 150 €/nuit partout (Al Hoceïma est l'étape la plus chère).</div>
+    <div class="rcard"><b>Meilleure période</b>Début septembre : mer encore à ~24 °C, foules d'août parties, prix en baisse. Route N16 sinueuse entre Al Hoceïma et Oued Laou — prévoir des étapes courtes, c'est fait exprès.</div>
+    <div class="rcard"><b>À réserver en avance</b>Al Hoceïma (Mercure), Tétouan (riad, peu de chambres) et Tanger. Cala Iris, El Jebha et Oued Laou se réservent par téléphone ou sur place.</div>
+  </div>
+  <div class="note"><strong>Honnêteté sur les prix :</strong> les hôtels ci-dessous sont réels et vérifiés (nom, adresse, note Google). Les prix affichés sont des fourchettes constatées pour septembre hors pointe — ils bougent selon la demande. Vérifie le prix exact du jour via les liens Booking/Maps avant de réserver. Les photos de lieux viennent de Wikimedia Commons (libres de droits) ; les photos des hôtels sont sur leurs fiches Booking/Maps.</div>
+</section>
+
+<main class="route wrap">
+
+  <!-- ================= AL HOCEIMA ================= -->
+  <div class="leg">Berkane → Al Hoceïma · ≈ 215 km · ≈ 3 h 15 (via Nador / Ajdir)</div>
+
+  <article class="day" data-n="J1" id="j1">
+    <div class="day-head">
+      <span class="date-tag">Samedi 5 → mardi 8 sept · 3 nuits</span>
+      <h3>Al Hoceïma — la perle de la Méditerranée</h3>
+      <div class="day-sub">Départ de Berkane le matin, arrivée pour le déjeuner. Trois jours pour la baie de Quemado, Cala Bonita, Sfiha et la corniche.</div>
+    </div>
+    <div class="day-body">
+      <div class="block-t">Hôtel · 3 nuits</div>
+      <div class="hotel">
+        <div class="hotel-name">Mercure Quemado Resort ★★★★</div>
+        <div class="hotel-meta">Av. Mohamed V, Al Hoceïma — note Google 4,4/5 (4 100+ avis) · directement sur la plage de Quemado · 2 piscines · +212 5 39 84 22 00</div>
+        <div class="rooms"><span class="room">🛏️ Chambre lit king vue mer — parents</span><span class="room">🛏️ Chambre standard — sœur</span></div>
+        <span class="price">≈ 65 – 85 € / chambre → ≈ 130 – 170 € les 2 chambres</span>
+        <div class="links"><a href="https://www.booking.com/hotel/ma/mercure-quemado-al-hoceima-resort.html" target="_blank">Voir sur Booking</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Mercure+Quemado+Resort+Al+Hoceima" target="_blank">Google Maps</a></div>
+        <div class="hotel-meta" style="margin-top:10px">⚠️ Peut légèrement dépasser 150 €/nuit selon les dates. Plan B économique dans le centre : <strong>Hotel National</strong> (23 rue Tétouan, 3,4/5, ≈ 25 – 30 €/chambre) — basique mais propre et bien placé.</div>
+      </div>
+      <div class="block-t">Activités</div>
+      <ul class="acts">
+        <li><b>Plage Quemado</b> — la baie emblématique de la ville, sable doré encadré de falaises, eau calme et transparente, idéale pour la baignade des parents. Accès à pied depuis l'hôtel.</li>
+        <li><b>Cala Bonita &amp; plage Sfiha</b> — Cala Bonita pour la crique chic à 10 min, Sfiha (à ~8 km, côté Ajdir) pour la grande plage face au Peñón de Alhucemas, l'îlot espagnol fortifié posé sur l'eau.</li>
+        <li><b>Corniche &amp; mirador + parc national d'Al Hoceïma</b> — balade en fin de journée sur la corniche, puis une demi-journée dans le parc national (pistes, criques de Tala Youssef, thuyas et balbuzards).</li>
+      </ul>
+      <div class="gal">
+        <div class="ph"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Al%20Hoceima%20Quemado.jpg?width=800" alt="Baie de Quemado" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+        <div class="ph"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Sfiha%20panorama.jpg?width=800" alt="Panorama de la plage Sfiha" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+        <div class="ph"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Al%20Hoceima%2C%20Maroc.jpg?width=800" alt="Al Hoceïma vue générale" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+      </div>
+      <div class="cred">Photos : Wikimedia Commons</div>
+    </div>
+  </article>
+
+  <!-- ================= CALA IRIS ================= -->
+  <div class="leg">Al Hoceïma → Cala Iris / Badès · ≈ 70 km · ≈ 1 h 45 de corniche</div>
+
+  <article class="day" data-n="J4" id="j4">
+    <div class="day-head">
+      <span class="date-tag">Mardi 8 sept · 1 nuit</span>
+      <h3>Cala Iris &amp; Badès — la côte sauvage</h3>
+      <div class="day-sub">La plus belle portion « bout du monde » du voyage : village maritime, plage de Torres de Alcala et l'îlot fortifié de Cala Iris.</div>
+    </div>
+    <div class="day-body">
+      <div class="block-t">Hôtel · 1 nuit</div>
+      <div class="hotel">
+        <div class="hotel-name">Maison d'hôtes Les Iris</div>
+        <div class="hotel-meta">Plage Cala Iris, parc national d'Al Hoceïma (Bni Boufrah) — note Google 4,3/5 (200+ avis) · accueil familial réputé, dîner tagine sur place · +212 7 53 10 79 06</div>
+        <div class="rooms"><span class="room">🛏️ Chambre double (grand lit) — parents</span><span class="room">🛏️ Chambre séparée — sœur</span></div>
+        <span class="price">≈ 30 – 45 € / chambre → ≈ 60 – 90 € les 2 chambres, dîner + petit-déj en sus</span>
+        <div class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=Maison+d%27hotes+Les+Iris+Cala+Iris" target="_blank">Google Maps</a></div>
+        <div class="hotel-meta" style="margin-top:10px">📞 Réservation par téléphone recommandée (peu de chambres) — demander explicitement les 2 chambres. Prévoir du cash, pas de TPE fiable dans la zone.</div>
+      </div>
+      <div class="block-t">Activités</div>
+      <ul class="acts">
+        <li><b>Îlot de Cala Iris</b> — petit îlot rocheux accessible à pied par une langue de sable quand la mer est basse ; vestiges de fortifications et vue sur toute la côte du parc national.</li>
+        <li><b>Plage de Torres de Alcala &amp; Badès</b> — plage de galets et sable entre deux caps, l'un des sites les plus préservés de la Méditerranée marocaine, avec les ruines des tours espagnoles au-dessus du village.</li>
+        <li><b>Port de pêche de Cala Iris</b> — minuscule port actif ; poisson grillé du jour dans les gargotes au retour de la plage.</li>
+      </ul>
+    </div>
+  </article>
+
+  <!-- ================= EL JEBHA ================= -->
+  <div class="leg">Cala Iris → El Jebha · ≈ 80 km · ≈ 2 h (route de montagne, rouler de jour)</div>
+
+  <article class="day" data-n="J5" id="j5">
+    <div class="day-head">
+      <span class="date-tag">Mercredi 9 sept · 1 nuit</span>
+      <h3>El Jebha — le port au pied du Rif</h3>
+      <div class="day-sub">Ancien Puerto Capaz : un bourg de pêcheurs blotti dans une baie circulaire, au pied des montagnes. Étape simple et authentique.</div>
+    </div>
+    <div class="day-body">
+      <div class="block-t">Hôtel · 1 nuit</div>
+      <div class="hotel">
+        <div class="hotel-name">Hôtel El Mamoun</div>
+        <div class="hotel-meta">Centre d'El Jebha, face au port — note Google 3,7/5 (300+ avis) · toit-terrasse avec vue sur le port, restaurant · +212 6 23 81 67 04</div>
+        <div class="rooms"><span class="room">🛏️ Chambre double — parents</span><span class="room">🛏️ Chambre séparée — sœur</span></div>
+        <span class="price">≈ 25 – 35 € / chambre → ≈ 50 – 70 € les 2 chambres</span>
+        <div class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=Hotel+El+Mamoun+El+Jebha" target="_blank">Google Maps</a></div>
+        <div class="hotel-meta" style="margin-top:10px">⚠️ Confort simple (c'est le meilleur du village, pas un 4★ au sens européen). Demander des chambres côté calme : le café du rez-de-chaussée vit tard. Une nuit, ça passe très bien.</div>
+      </div>
+      <div class="block-t">Activités</div>
+      <ul class="acts">
+        <li><b>Port de pêche</b> — retour des barques en fin d'après-midi, criée informelle, sardines et espadon grillés directement au port.</li>
+        <li><b>Plage Mers Dar</b> — la plage de la baie circulaire, encadrée par les contreforts du Rif qui tombent dans la mer.</li>
+        <li><b>Balade au couchant</b> — montée au-dessus du village pour la vue sur la baie « en fer à cheval » qui a donné son nom (El Jebha = le front).</li>
+      </ul>
+      <div class="gal">
+        <div class="ph"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Port%20de%20P%C3%AAche%20de%20Jebha%2C%20Province%20de%20Chefchaouen%2C%20Maroc..jpg?width=800" alt="Port de pêche d'El Jebha" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+        <div class="ph"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Plage%20Mers%20Dar%20%C3%A0%20El%20Jebha.JPG?width=800" alt="Plage Mers Dar à El Jebha" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+        <div class="ph"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/El%20jebha%20beach.jpg?width=800" alt="Plage d'El Jebha" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+      </div>
+      <div class="cred">Photos : Wikimedia Commons</div>
+    </div>
+  </article>
+
+  <!-- ================= TARGHA / OUED LAOU ================= -->
+  <div class="leg">El Jebha → Targha → Oued Laou · ≈ 90 km · ≈ 2 h 15 avec pause baignade</div>
+
+  <article class="day" data-n="J6" id="j6">
+    <div class="day-head">
+      <span class="date-tag">Jeudi 10 sept · 1 nuit</span>
+      <h3>Targha puis Oued Laou</h3>
+      <div class="day-sub">Baignade à Targha en fin de matinée (plage + vieille kasbah sur la colline), déjeuner poisson, puis courte route jusqu'à Oued Laou pour la nuit.</div>
+    </div>
+    <div class="day-body">
+      <div class="block-t">Hôtel · 1 nuit</div>
+      <div class="hotel">
+        <div class="hotel-name">Hôtel RAMA</div>
+        <div class="hotel-meta">N16, avenue Hassan II, Oued Laou — note Google 3,7/5 · à 2 minutes à pied de la plage · +212 5 39 67 09 12</div>
+        <div class="rooms"><span class="room">🛏️ Chambre double — parents</span><span class="room">🛏️ Chambre séparée — sœur</span></div>
+        <span class="price">≈ 25 – 40 € / chambre → ≈ 50 – 80 € les 2 chambres</span>
+        <div class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=Hotel+RAMA+Oued+Laou" target="_blank">Google Maps</a></div>
+      </div>
+      <div class="block-t">Activités</div>
+      <ul class="acts">
+        <li><b>Plage de Targha</b> — longue plage au pied du Rif, l'un des meilleurs spots baignade du trajet ; la kasbah en ruine domine le village.</li>
+        <li><b>Embouchure de l'oued Laou</b> — la rivière descendue de Chefchaouen rejoint la mer ; vallée d'orchidées et de vergers, belle lumière en fin de journée.</li>
+        <li><b>Front de mer d'Oued Laou</b> — station balnéaire familiale et tranquille hors saison : corniche, cafés, poisson grillé le soir.</li>
+      </ul>
+    </div>
+  </article>
+
+  <!-- ================= TETOUAN ================= -->
+  <div class="leg">Oued Laou → Tétouan · ≈ 45 km · ≈ 1 h</div>
+
+  <article class="day" data-n="J7" id="j7">
+    <div class="day-head">
+      <span class="date-tag">Vendredi 11 → dimanche 13 sept · 2 nuits</span>
+      <h3>Tétouan — la colombe blanche</h3>
+      <div class="day-sub">Deux nuits pour la médina classée UNESCO, l'héritage andalou et le quartier espagnol. La ville la plus sous-cotée du nord.</div>
+    </div>
+    <div class="day-body">
+      <div class="block-t">Hôtel · 2 nuits</div>
+      <div class="hotel">
+        <div class="hotel-name">Riad Dar Lalla Mennana</div>
+        <div class="hotel-meta">28 rue Souika, médina de Tétouan — note Google 5,0/5 (70+ avis) · riad rénové en plein cœur de la médina, terrasse panoramique · +212 7 63 59 22 35</div>
+        <div class="rooms"><span class="room">🛏️ Chambre grand lit — parents</span><span class="room">🛏️ Chambre séparée — sœur</span></div>
+        <span class="price">≈ 50 – 65 € / chambre → ≈ 100 – 130 € les 2 chambres, petit-déj souvent inclus</span>
+        <div class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=Riad+Dar+Lalla+Mennana+Tetouan" target="_blank">Google Maps</a><a href="https://www.booking.com/searchresults.html?ss=Riad+Dar+Lalla+Mennana+Tetouan" target="_blank">Chercher sur Booking</a></div>
+        <div class="hotel-meta" style="margin-top:10px">🚗 La voiture ne rentre pas dans la médina : parking gardé à proximité, le riad guide par téléphone jusqu'à la porte. Réserver tôt, peu de chambres.</div>
+      </div>
+      <div class="block-t">Activités</div>
+      <ul class="acts">
+        <li><b>Médina UNESCO</b> — la médina la plus « andalouse » du Maroc, quasi intacte : souks par corporations, fondouks, tanneries, portes historiques (Bab Okla, Bab Rouah). Matinée guidée conseillée.</li>
+        <li><b>Place Hassan II (Feddane) &amp; palais royal</b> — la grande place blanche entre médina et ville nouvelle, à voir en fin d'après-midi quand elle s'anime.</li>
+        <li><b>L'Ensanche espagnol</b> — l'ancien quartier colonial espagnol et son architecture années 1920-40, cafés à l'ancienne ; option musée ethnographique ou école d'artisanat (Dar Sanaa).</li>
+      </ul>
+      <div class="gal">
+        <div class="ph"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/M%C3%A9dina%20de%20T%C3%A9touan.jpg?width=800" alt="Médina de Tétouan" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+        <div class="ph"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Medina%20de%20Tetouan%20Nov2020%20003.jpg?width=800" alt="Ruelle de la médina de Tétouan" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+        <div class="ph"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Sunset%20from%20TETOUAN%20MOROCCO.jpg?width=800" alt="Coucher de soleil sur Tétouan" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+      </div>
+      <div class="cred">Photos : Wikimedia Commons</div>
+    </div>
+  </article>
+
+  <!-- ================= BELYOUNECH / KSAR SGHIR / TANGER ================= -->
+  <div class="leg">Tétouan → Belyounech → Ksar Sghir → Tanger · ≈ 110 km · journée avec étapes</div>
+
+  <article class="day" data-n="J9" id="j9">
+    <div class="day-head">
+      <span class="date-tag">Dimanche 13 → mardi 15 sept · 2 nuits à Tanger</span>
+      <h3>Belyounech, Ksar Sghir, puis Tanger</h3>
+      <div class="day-sub">Route du détroit : baie de Belyounech face au Jebel Musa le matin, forteresse de Ksar Sghir à midi, arrivée à Tanger dans l'après-midi.</div>
+    </div>
+    <div class="day-body">
+      <div class="block-t">Étapes du jour</div>
+      <ul class="acts">
+        <li><b>Belyounech</b> — village de pêcheurs dans une baie fermée, juste sous le Jebel Musa (l'une des « colonnes d'Hercule ») et face à Sebta ; courte marche côtière et café au bord de l'eau.</li>
+        <li><b>Ksar Sghir</b> — vestiges de la cité fortifiée médiévale à l'embouchure de l'oued, remaniée par les Portugais au XVe siècle ; visite courte (30-45 min) au bord du détroit.</li>
+      </ul>
+      <div class="block-t">Hôtel · 2 nuits</div>
+      <div class="hotel">
+        <div class="hotel-name">Dar El Kasbah</div>
+        <div class="hotel-meta">12 rue de la Kasbah, Tanger — note Google 4,2/5 (200+ avis) · bâtisse coloniale à l'entrée de la médina, au pied de la kasbah, petit-déj inclus · +212 6 61 08 95 83</div>
+        <div class="rooms"><span class="room">🛏️ Chambre grand lit — parents</span><span class="room">🛏️ Chambre séparée — sœur</span></div>
+        <span class="price">≈ 45 – 55 € / chambre → ≈ 90 – 110 € les 2 chambres</span>
+        <div class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=Dar+El+Kasbah+Tanger" target="_blank">Google Maps</a><a href="https://www.booking.com/searchresults.html?ss=Dar+El+Kasbah+Tangier" target="_blank">Chercher sur Booking</a></div>
+        <div class="hotel-meta" style="margin-top:10px">ℹ️ Pas d'ascenseur : demander un étage bas pour les parents. Emplacement parfait pour tout faire à pied.</div>
+      </div>
+      <div class="block-t">Activités à Tanger (J9 – J10)</div>
+      <ul class="acts">
+        <li><b>Kasbah &amp; musée de la Kasbah (Dar el-Makhzen)</b> — l'ancien palais du sultan au point haut de la ville, cours à zelliges et vue sur le détroit de Gibraltar.</li>
+        <li><b>Médina, Petit Socco &amp; Grand Socco</b> — descente de la kasbah vers les souks, pause au café Hafa (thé à la menthe face à l'Espagne, institution depuis 1921).</li>
+        <li><b>Cap Malabata</b> — le phare et la vue sur toute la baie de Tanger, idéal au coucher du soleil ; option matinée grottes d'Hercule / Cap Spartel le 2e jour.</li>
+      </ul>
+      <div class="gal">
+        <div class="ph"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Tanger%20cap%20de%20spartel.jpg?width=800" alt="Cap Spartel, Tanger" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+        <div class="ph"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Al%20Hoceima%20Beach.jpg?width=800" alt="Côte méditerranéenne du nord du Maroc" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+        <div class="ph"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Tetouan%20Morocco.jpg?width=800" alt="Paysage du nord du Maroc" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+      </div>
+      <div class="cred">Photos : Wikimedia Commons</div>
+    </div>
+  </article>
+
+  <!-- ================= RETOUR ================= -->
+  <div class="leg">Tanger → Berkane · ≈ 560 km · ≈ 5 h 45 par autoroute (A4 / A2 via Fès–Oujda)</div>
+
+  <article class="day" data-n="J11" id="j11">
+    <div class="day-head">
+      <span class="date-tag">Mardi 15 sept</span>
+      <h3>Retour à Berkane</h3>
+      <div class="day-sub">Dernière balade matinale dans la kasbah, check-out, puis retour par l'autoroute (bien plus rapide que la côte). Pause déjeuner recommandée vers Taza. Arrivée en début de soirée.</div>
+    </div>
+    <div class="day-body">
+      <ul class="acts">
+        <li><b>Check-list départ</b> — plein d'essence avant l'autoroute, cash pour les péages, eau et snacks. Alterner les conducteurs si possible.</li>
+      </ul>
+    </div>
+  </article>
+
+</main>
+
+<footer>
+  <b>Rif &amp; Méditerranée · 5 – 15 septembre · 3 voyageurs</b><br>
+  Hôtels vérifiés (fiches Google réelles) · fourchettes de prix septembre à confirmer au moment de la réservation · photos Wikimedia Commons.<br>
+  Bon voyage à la famille. 🇲🇦
+</footer>
+
+</body>
+</html>
